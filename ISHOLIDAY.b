@@ -2,6 +2,11 @@ SUBROUTINE ISHOLIDAY(yDate, yIsHoliday)
 
 * call routine to check inputted date is holiday or not
 
+    $INSERT I_COMMON
+    $INSERT I_EQUATE
+    $INSERT I_F.HOLIDAY
+    * add more if you need
+
 main:
     GOSUB init
     GOSUB process
@@ -39,7 +44,7 @@ process:
         RETURN
     END
 
-    yMounthField = "PREFIX.HOLIDAY.TABLE" : ".MTH." : yMonth : ".TABLE"
+    yMounthField = "PREFIX.MTH." : yMonth : ".TABLE" ; * please replace PREFIX with the actual PREFIX
     yListDateHolidayThisMounth = rHoliday<yMounthField>
 
     ySelectedDate = yListDateHolidayThisMounth[yDay, 1]
