@@ -2,6 +2,10 @@ SUBROUTINE GET.ID.PROP.ARR(yArr, yProp, yID)
 
 * call routine to return ID for arrangement property table
 
+    $INSERT I_COMMON
+    $INSERT I_EQUATE
+    * add more if you need
+
 main:
     GOSUB init
     GOSUB process
