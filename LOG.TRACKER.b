@@ -2,6 +2,10 @@ SUBROUTINE LOG.TRACKER(yLogFile, yLog, yLogPath, ySwitcher)
 
 * call routine to write simple log tracker for asyn process on t24
 
+    $INSERT I_COMMON
+    $INSERT I_EQUATE
+    * add more if you need
+
 main:
     GOSUB init
     GOSUB process
