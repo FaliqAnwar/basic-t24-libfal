@@ -37,24 +37,24 @@ process:
     RETURN
 
 write.log:
-    OPENSEQ ffFolder, yLogFile TO fvFolder THEN
-        WEOFSEQ fvFolder ;* disable it if you don't want to clear previous log
+    OPENSEQ ffFolder, yLogFile TO fvFolderSeq THEN
+        WEOFSEQ fvFolderSeq ;* disable it if you don't want to clear previous log
     END ELSE
-        CREATE fvFolder ELSE
+        CREATE fvFolderSeq ELSE
             CALL OCOMO("failed to create file " : yLogFile)
             RETURN
         END
     END
 
-    WRITESEQ yLog TO fvFolder ELSE
+    WRITESEQ yLog TO fvFolderSeq ELSE
         CALL OCOMO("failed write to file")
     END
 
-    FLUSH fvFolder ELSE
+    FLUSH fvFolderSeq ELSE
         CALL OCOMO("can't flush " : yLogFile)
     END
 
-    CLOSESEQ fvFolder
+    CLOSESEQ fvFolderSeq
 
     RETURN
 
